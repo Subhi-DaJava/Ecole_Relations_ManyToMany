@@ -1,5 +1,7 @@
 package com.weten.ecole.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +16,7 @@ public class User {
     @Column(name = "USER_NAME", unique = true, length = 20) //respecte la convention majuscule BDD
     private String userName;
 
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY) //ne pas sérialiser le password
     private String password;
 
     @ManyToMany(mappedBy = "users",fetch = FetchType.EAGER)

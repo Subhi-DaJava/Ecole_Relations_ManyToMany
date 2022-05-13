@@ -1,5 +1,6 @@
 package com.weten.ecole.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import net.bytebuddy.build.ToStringPlugin;
 
 import javax.persistence.*;
@@ -21,6 +22,7 @@ public class Role {
     @JoinTable(name = "USER_ROLE", // Sans @JoinTable : table de l'association, par défaut les noms des tables associées : comme USERS_ROLES
     joinColumns = @JoinColumn(name = "role_id"),
     inverseJoinColumns = @JoinColumn(name = "user_id"))
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)//ne pas sérialiser les Users
     private List<User> users = new ArrayList<>(); //toujours new
 
     public Role() {
