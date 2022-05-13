@@ -1,5 +1,5 @@
 # Ecole_Relations_ManyToMany
-### H2 
+### BDD : H2 
 ### Java11
 ### Maven 3.8.4
 ### Note : le `password` est en dur, le problème seras traité avec spring boot security
